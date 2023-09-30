@@ -1,17 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Blog;
 
-use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
-use Illuminate\Http\Request;
+use Illuminate\View\View;
 
-class ShowController extends BaseController
+final class PostShowController extends BaseController
 {
 
-    public function __invoke(Post $post, Category $category, Tag $tags)
+    public function __invoke(Post $post, Category $category, Tag $tags): View
     {
         return view('blog.show', compact('post', 'category', 'tags'));
     }

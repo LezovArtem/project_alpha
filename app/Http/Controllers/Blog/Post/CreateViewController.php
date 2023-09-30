@@ -1,19 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Blog;
 
-use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Tag;
-use Illuminate\Http\Request;
+use Illuminate\View\View;
 
-class CreateController extends BaseController
+final class CreateViewController extends BaseController
 {
 
-    public function __invoke()
+    public function __invoke(): View
     {
         $categories = Category::all();
         $tags = Tag::all();
+
         return view('blog.create', compact('categories', 'tags'));
     }
 }

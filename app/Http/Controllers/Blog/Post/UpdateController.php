@@ -1,21 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Blog;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\UpdateRequest;
-use App\Http\Resources\PostResource;
 use App\Models\Post;
-use Illuminate\Http\Request;
-use PhpParser\Node\Expr\Instanceof_;
+use Illuminate\Http\RedirectResponse;
 
-class UpdateController extends BaseController
+final class UpdateController extends BaseController
 {
 
-    public function __invoke(UpdateRequest $request, Post $post)
+    public function __invoke(UpdateRequest $request, Post $post): RedirectResponse
     {
         $data = $request -> validated();
+
         $this->service->update($post, $data);
+
         return redirect()->route('posts.show', $post->id);
     }
 }

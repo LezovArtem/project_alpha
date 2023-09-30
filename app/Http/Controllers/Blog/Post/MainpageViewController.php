@@ -1,19 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Blog;
 
-use App\Http\Controllers\Controller;
 use App\Models\Post;
-use App\Models\User;
-use Illuminate\Http\Request;
+use Illuminate\View\View;
 
-class PostController extends BaseController
+final class MainpageViewController extends BaseController
 {
 
-    public function __invoke()
+    public function __invoke(): View
     {
        $posts = Post::paginate(10);
        return view('blog.mainpage', compact('posts'));
-
     }
 }

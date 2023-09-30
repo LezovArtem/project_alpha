@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Post\BaseController;
-use App\Http\Requests\Post\StoreRequest;
-use App\Http\Requests\Post\UpdateRequest;
-use App\Http\Resources\Post\PostResource;
+use App\Http\Controllers\BaseController;
+use App\Http\Requests\PostApi\StoreRequest;
+use App\Http\Requests\PostApi\UpdateRequest;
+use App\Http\Resources\PostResource;
 use App\Models\Post;
 
 class PostController extends BaseController
@@ -25,7 +25,7 @@ class PostController extends BaseController
     {
         $data = $request->validated();
 
-        $post = $this->service->store($data);
+        $post = $this->service->apiStore($data);
 
         return $post instanceof Post ? new PostResource($post) : $post;
     }
@@ -45,7 +45,7 @@ class PostController extends BaseController
     {
         $data = $request -> validated();
 
-        $post = $this->service->update($post, $data);
+        $post = $this->service->apiUpdate($post, $data);
 
         return $post instanceof Post ? new PostResource($post) : $post;
     }

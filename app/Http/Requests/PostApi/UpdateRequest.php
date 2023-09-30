@@ -24,8 +24,8 @@ class UpdateRequest extends FormRequest
         return [
             'title' => 'string',
             'content' => 'string',
-            'image' => 'string',
             'category' => '',
+            'image' => 'string',
             'tags' => '',
             'tags.*.' => ''
         ];

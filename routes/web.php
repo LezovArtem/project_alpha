@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -32,11 +32,11 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-Route::group(['namespace' => 'App\Http\Controllers\Blog'], function (){
-    Route::get('/posts', 'PostController')->name('posts.index');
-    Route::get('/posts/create', 'CreateController')->name('posts.create');
+Route::group(['namespace' => 'App\Http\Controllers\Blog\Post'], function (){
+    Route::get('/posts', 'MainpageViewController')->name('posts.index');
+    Route::get('/posts/create', 'CreateViewController')->name('posts.create');
     Route::post('/posts', 'StoreController')->name('posts.store');
-    Route::get('/posts/{post}', 'ShowController')->name('posts.show');
+    Route::get('/posts/{post}', 'PostShowController')->name('posts.show');
     Route::get('/posts/{post}/edit', 'EditController')->name('posts.edit');
     Route::patch('/posts/{post}', 'UpdateController')->name('posts.update');
     Route::delete('/posts/{post}', 'DestroyController')->name('posts.delete');
@@ -66,7 +66,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Blog\Tags'], function (){
 
 Route::group(['namespace' => 'App\Http\Controllers\AdminPanel', 'prefix' => 'admin', 'middleware' => 'admin'], function (){
     Route::get('/posts', 'AdminController')->name('admin.posts.index');
-
 });
 
 Auth::routes();

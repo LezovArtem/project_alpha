@@ -1,20 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Blog\Tags;
 
-use App\Http\Controllers\Blog\BaseController;
-use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Http\Controllers\BaseController;
 use App\Models\Post;
-use App\Models\PostTag;
-use App\Models\Tag;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Http\Request;
+use Illuminate\View\View;
 
-class VelitController extends BaseController
+final class VelitController extends BaseController
 {
 
-    public function __invoke()
+    public function __invoke(): View
     {
         $posts = Post::whereHas('tags', function ($post){
             $post->where('tags.id', 5);

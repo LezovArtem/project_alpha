@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Blog;
+namespace App\Http\Controllers\Blog\Post;
 
+use App\Http\Controllers\BaseController;
 use App\Http\Requests\Post\UpdateRequest;
 use App\Models\Post;
 use Illuminate\Http\RedirectResponse;

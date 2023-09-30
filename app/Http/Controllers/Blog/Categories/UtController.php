@@ -1,16 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Blog\Categories;
 
-use App\Http\Controllers\Blog\BaseController;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseController;
 use App\Models\Post;
-use Illuminate\Http\Request;
+use Illuminate\View\View;
 
-class UtController extends BaseController
+final class UtController extends BaseController
 {
 
-    public function __invoke()
+    public function __invoke(): View
     {
        $posts = Post::all()->where('category_id', '1');
        return view('blog.categories.ut', compact('posts'));

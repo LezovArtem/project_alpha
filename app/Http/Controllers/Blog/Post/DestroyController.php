@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Blog;
+namespace App\Http\Controllers\Blog\Post;
 
-use Illuminate\Http\RedirectResponse;
+use App\Http\Controllers\BaseController;
 use App\Models\Post;
+use Illuminate\Http\RedirectResponse;
 
 final class DestroyController extends BaseController
 {

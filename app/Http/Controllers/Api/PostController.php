@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\BaseController;
+use App\Http\Controllers\Blog\Post\BaseController;
 use App\Http\Requests\PostApi\StoreRequest;
 use App\Http\Requests\PostApi\UpdateRequest;
 use App\Http\Resources\PostResource;
@@ -41,9 +41,11 @@ class PostController extends BaseController
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRequest $request, Post $post)
+    public function update(UpdateRequest $request, string $id)
     {
         $data = $request -> validated();
+
+        $post = Post::find($id);
 
         $post = $this->service->apiUpdate($post, $data);
 

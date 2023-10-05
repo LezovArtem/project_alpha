@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Blog\Post;
 
+use App\Http\Controllers\Controller;
 use App\Services\Post\Service;
 
 class BaseController extends Controller

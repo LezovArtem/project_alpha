@@ -33,8 +33,9 @@ Route::group([
 
 });
 
-/*Route::group(['middleware' => 'jwt.auth'], function () {
-});*/
-Route::apiResources([
-    'api_posts' => PostController::class,
-]);
+Route::group(['middleware' => 'jwt.auth'], function () {
+    Route::apiResources([
+        'api_posts' => PostController::class,
+    ]);
+});
+

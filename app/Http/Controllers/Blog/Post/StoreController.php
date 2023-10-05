@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Blog\Post;
 
-use App\Http\Controllers\BaseController;
 use App\Http\Requests\Post\StoreRequest;
 use Illuminate\Http\RedirectResponse;
 

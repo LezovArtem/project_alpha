@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\AdminPanel;
 
-use App\Http\Controllers\BaseController;
+use App\Http\Controllers\Blog\Post\BaseController;
 use App\Models\Post;
 use App\Models\User;
 
